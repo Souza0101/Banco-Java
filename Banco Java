@@ -1,0 +1,59 @@
+import java.util.Scanner; 
+public class banco {
+    public static void main(String[] args) {
+
+        Scanner s = new Scanner(System.in);
+        int saldo, saldo2, transferencia, sacar, saidaconta, pessoa2, escolha;
+        String nome, nome2;
+        
+
+       System.out.println("Digite seu nome ");
+       nome = s.nextLine();
+
+       System.out.println("Digite o nome da outra pessoa");
+       nome2 = s.nextLine();
+
+       System.out.println("Digite o valor que tem na conta do "+nome);
+       saldo = s.nextInt();
+
+       System.out.println("Digite o valor que tem na conta do "+nome2);
+       saldo2 = s.nextInt();
+
+       System.out.println("Ola "+ nome +" você tem "+ saldo +" reais");
+
+       System.out.println("Digite a funcionalidade que você deseja \n1 - Transferencia \n2 - Sacar: ");  
+        escolha = s.nextInt();
+
+       switch (escolha) {
+
+        case 1:
+        System.out.println("Digite o valor que deseja transferir: ");
+        saidaconta = s.nextInt();  
+
+        if(saidaconta>saldo){
+            System.out.println("Você não possui esse dinheiro em caixa.");
+        }
+        else{
+        transferencia = saldo - saidaconta;
+        pessoa2 = saldo2 + saidaconta;
+        System.out.println("Na sua conta ainda tem " + transferencia);
+        System.out.println("Na conta do(a) "+nome2+" tem "+pessoa2);
+        }
+        break;
+       
+        case 2:
+        System.out.println("Digite o valor que deseja sacar: ");
+        saidaconta = s.nextInt();
+
+        if(saidaconta>saldo){
+            System.out.println("Você não possui esse dinheiro em caixa.");
+        }
+        else{
+        sacar = saldo - saidaconta;
+        System.out.println("Na sua conta tem " + sacar);
+        }
+        break;
+        }
+        
+    }
+}
